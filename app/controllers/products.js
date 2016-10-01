@@ -45,10 +45,7 @@ exports.thisMonthOrders = function(req, res){
                     GROUP BY p.id, mo.amount
                     `, { type: sequelize.QueryTypes.SELECT})
                     .then(function(orders) {
-                        setTimeout(() => {
-                            return res.jsonp(orders);
-                        }, 10000);
-
+                        return res.jsonp(orders);
                     });
     // sequelize.query(`SELECT p.id,
     //                 p.name,
@@ -94,10 +91,7 @@ exports.todayOrders = function(req, res){
                     `, { type: sequelize.QueryTypes.SELECT})
                     .then(function(orders) {
                         console.log('todayOrders ==> ', orders);
-                        setTimeout(() => {
                             return res.jsonp(orders);
-                        }, 10000);
-
                     });
 
     // sequelize.query(`SELECT p.id,
@@ -256,9 +250,7 @@ exports.activeProducts = function(req, res){
             active: true
         }
     }).then(function(products){
-        setTimeout(() => {
-            return res.jsonp(products);
-        }, 10000);
+        return res.jsonp(products);
     }).catch(function(err){
         return res.render('error', {
             error: err,

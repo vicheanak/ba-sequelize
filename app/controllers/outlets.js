@@ -150,11 +150,7 @@
         ORDER BY ord.orderDate DESC
         `, { type: sequelize.QueryTypes.SELECT})
     .then(function(orders) {
-        console.log('todayOutlets ===> ', orders);
-        setTimeout(() => {
-            return res.jsonp(orders);
-        }, 10000);
-
+        return res.jsonp(orders);
     });
 };
 
@@ -171,12 +167,9 @@ exports.countThisMonthOutlets = function(req, res){
         AND ord.orderMonth = ${month}
         AND ord.orderYear = ${year}
         `, { type: sequelize.QueryTypes.SELECT})
-    .then(function(outlets) {
-        setTimeout(() => {
+        .then(function(outlets) {
             return res.jsonp(outlets);
-        }, 10000);
-
-    });
+        });
 }
 
 exports.todayOutletsByOutlet = function(req, res){

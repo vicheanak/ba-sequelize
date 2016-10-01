@@ -65,12 +65,10 @@
         req.body.ProductId,
         req.body.UserId],
         type:sequelize.QueryTypes.INSERT})
-    .then(function(orders) {
-        setTimeout(() => {
+        .then(function(orders) {
             return res.jsonp(orders);
-        }, 10000);
-    });
-};
+        });
+ };
 
 /**
  * Update a order
@@ -83,9 +81,7 @@
     order.updateAttributes({
         amount: req.body.amount
     }).then(function(a){
-        setTimeout(() => {
-            return res.jsonp(a);
-        }, 10000);
+        return res.jsonp(a);
     }).catch(function(err){
         return res.render('error', {
             error: err,

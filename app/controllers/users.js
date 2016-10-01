@@ -304,10 +304,7 @@ exports.mobileAuthenticate = function(req,res){
                     user.updateAttributes({
                         token: jwt.encode(uuid.v4(), secret)
                     }).then(function(a){
-                        setTimeout(() => {
                             res.jsonp(user);
-                        }, 10000);
-
                     });
                 }
                 else{
