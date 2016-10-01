@@ -7,7 +7,6 @@ var express = require('express');
 var flash = require('connect-flash');
 var helpers = require('view-helpers');
 var compression = require('compression');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -44,6 +43,17 @@ module.exports = function(app, passport) {
 
     app.set('showStackError', true);
 
+    app.set('views', config.root + '/app/views');
+    app.set('view engine', 'jade');
+
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        next(err);
+        res.render('error', {
+            message: 'hi',
+            error: {}
+        });
+    });
     //Prettify HTML
     app.locals.pretty = true;
 
@@ -55,16 +65,12 @@ module.exports = function(app, passport) {
         level: 9
     }));
 
-    //Setting the fav icon and static folder
 
     //Don't use logger for test env
     if (config.NODE_ENV !== 'test') {
         app.use(logger('dev', { "stream": winston.stream }));
     }
 
-    //Set views path, template engine and default layout
-    app.set('views', config.root + '/app/views');
-    app.set('view engine', 'jade');
 
     //Enable jsonp
     app.enable("jsonp callback");
