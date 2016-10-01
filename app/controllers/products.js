@@ -45,7 +45,10 @@ exports.thisMonthOrders = function(req, res){
                     GROUP BY p.id, mo.amount
                     `, { type: sequelize.QueryTypes.SELECT})
                     .then(function(orders) {
-                        return res.jsonp(orders);
+                        setTimeout(() => {
+                            return res.jsonp(orders);
+                        }, 10000);
+
                     });
     // sequelize.query(`SELECT p.id,
     //                 p.name,
@@ -54,7 +57,7 @@ exports.thisMonthOrders = function(req, res){
     //                 mo.amount as monthlyCaseTarget,
     //                 p.pieces,
     //                 p.star,
-    //                 SUM(o.amount)/p.pieces AS totalSale, 
+    //                 SUM(o.amount)/p.pieces AS totalSale,
     //                 mo.amount - (SUM(o.amount)/p.pieces) AS remainingSale
     //                 FROM Products AS p
     //                 INNER JOIN Orders AS o ON o.ProductId = p.id
@@ -91,7 +94,10 @@ exports.todayOrders = function(req, res){
                     `, { type: sequelize.QueryTypes.SELECT})
                     .then(function(orders) {
                         console.log('todayOrders ==> ', orders);
-                        return res.jsonp(orders);
+                        setTimeout(() => {
+                            return res.jsonp(orders);
+                        }, 10000);
+
                     });
 
     // sequelize.query(`SELECT p.id,
@@ -115,7 +121,7 @@ exports.todayOrders = function(req, res){
     //                     console.log('todayOrders ==> ', orders);
     //                     return res.jsonp(orders);
     //                 });
-                
+
 
     // sequelize.query(`SELECT p.id,
     //                 p.name,
@@ -250,7 +256,9 @@ exports.activeProducts = function(req, res){
             active: true
         }
     }).then(function(products){
-        return res.jsonp(products);
+        setTimeout(() => {
+            return res.jsonp(products);
+        }, 10000);
     }).catch(function(err){
         return res.render('error', {
             error: err,
