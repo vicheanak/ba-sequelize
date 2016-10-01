@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "helloworld",
-    "database": "sp_sequelize",
+    "password": "tU/x@168rY",
+    "database": "ba_sequelize",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "helloworld",
-    "database": "sp_sequelize",
+    "password": "tU/x@168rY",
+    "database": "ba_sequelize",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "helloworld",
-    "database": "sp_sequelize",
+    "password": "tU/x@168rY",
+    "database": "ba_sequelize",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
