@@ -104,9 +104,12 @@
  * List of Outlets
  */
  exports.all = function(req, res) {
-    db.Outlet.findAll({include: [
-        {model:db.Distributor, attributes: ['id', 'dtCode', 'dtName', 'dtNameKh']}
-        ]}).then(function(outlets){
+    db.Outlet.findAll({
+        include: [
+            {model:db.Distributor, attributes: ['id', 'dtCode', 'dtName', 'dtNameKh']}
+        ],
+        order: [['id', 'asc']]
+    }).then(function(outlets){
             return res.jsonp(outlets);
         }).catch(function(err){
             return res.render('error', {
