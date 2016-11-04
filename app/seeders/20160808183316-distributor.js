@@ -14,8 +14,7 @@ module.exports = {
        ,"createdAt":now
        ,"updatedAt":now
    }];
-
-   return queryInterface.bulkInsert('Distributors', data);
+   // return queryInterface.bulkInsert('Distributors', data);
 },
 
 down: function (queryInterface, Sequelize) {

@@ -30,7 +30,8 @@ migrations/
 config/env/development.json5
 config/env/production.json5
 config/env/test.json5
-app/config/
+app/config/config.json
+app/config/secret.js
 config/env/all.json5
 
 *.local

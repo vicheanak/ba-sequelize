@@ -286,7 +286,7 @@ module.exports = {
        ,"createdAt":now
        ,"updatedAt":now
    }];
-   return queryInterface.bulkInsert('Products', data);
+   // return queryInterface.bulkInsert('Products', data);
 },
 
 down: function (queryInterface, Sequelize) {

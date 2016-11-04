@@ -657,7 +657,7 @@ module.exports = {
 		}];
 
 
-		return queryInterface.bulkInsert('Outlets', data);
+		// return queryInterface.bulkInsert('Outlets', data);
 	},
 
 	down: function (queryInterface, Sequelize) {
